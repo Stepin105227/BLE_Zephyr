@@ -7,7 +7,7 @@
 #include <bluetooth/hci.h>
 
 #pragma pack(1)
-struct advertizedata
+struct advertising_data
 {
 	uint8_t name[8];
 	uint8_t age;
@@ -17,7 +17,7 @@ struct advertizedata
 };
 #pragma pack(0)
 
-struct advertizedata adv_data = {
+struct advertising_data adv_data = {
 	.name = "Dushyant",
 	.age = 100,
 	.salary = 40,
@@ -60,7 +60,7 @@ void main(void)
 {
 	int err;
 	printk("Starting iBeacon Demo\n");
-    update_the_ADV_data("Raunak",101,90,70,'B');
+        update_the_ADV_data("Raunak",101,90,70,'B');
 	err = bt_enable(bt_ready);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
@@ -69,7 +69,7 @@ void main(void)
 
 void update_the_ADV_data(uint8_t *name, uint8_t age, uint8_t salary, uint8_t hight, uint8_t *BG)
 {
-	strncpy((char *)adv_data.name, name, sizeof(adv_data.name) - 1);
+    strncpy((char *)adv_data.name, name, sizeof(adv_data.name) - 1);
     adv_data.age = age;
     adv_data.salary = salary;
     adv_data.hightinfeet = hight;
