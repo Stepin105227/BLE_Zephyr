@@ -25,7 +25,7 @@ struct advertising_data adv_data = {
 	.bloodgroup = 'A'
 };
 static const struct bt_data ad[] = {
-	BT_DATA(0x15, &adv_data, sizeof(adv_data)),
+	BT_DATA(0xFFFF, &adv_data, sizeof(adv_data)),
 };
 const struct bt_le_adv_param param ={
 	.id = 0,
